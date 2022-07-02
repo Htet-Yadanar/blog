@@ -6,6 +6,9 @@ body{
     color: #3c3c3d;
     font-weight: 500;
 }
+.whole-page{
+  height: 100vh;
+}
 /* for a tag */
 a{
   color:#2c3e50;

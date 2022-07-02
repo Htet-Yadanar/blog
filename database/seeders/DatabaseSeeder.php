@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-// use App\Models\Blog;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        
+        $this->call(UserSeeder::class);
+        \App\Models\Post::factory(30)->create();
+        \App\Models\Comment::factory(100)->create();
     }
 }

@@ -31,8 +31,14 @@
 
             <div class="d-flex justify-content-between mb-2 px-3">
                     <span class="a-small"><a class="text-white" href="{{ route('postList') }}"><i class="fas fa-angle-double-left"></i> Back to list</a></span> 
-                    <span class="a-small">{{ $post->created_at->format('M D Y') }}</span> 
-                    <span class="a-small">{{ $post->created_at->diffForHumans() }} </span>
+                    <span class="a-small">
+                        <a href="{{route('postEdit',$post->id)}}" class="text-white h5 px-3">
+                            <i class="far fa-edit"></i> 
+                        </a>
+                        <a href="{{route('DeletePost',$post->id)}}" class="text-danger h5">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </span>
             </div>
           
        </div>
