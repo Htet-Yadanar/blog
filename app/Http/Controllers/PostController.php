@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -12,6 +13,7 @@ class PostController extends Controller
     {
     $this->middleware('auth')->except(['index', 'detail']);
     }
+    
 
     public function index()
     {
@@ -65,7 +67,16 @@ class PostController extends Controller
     public function delete($id)
     {
             $post = Post::find($id);
-            $post->delete();
-            return redirect('/post/list')->with('success', 'Post deleted');
+            if( Gate::allows('post-delete', $post) ) {
+                $post->delete();
+                return redirect('/post/list')->with('success', 'Post deleted');
+                }
+            else {
+                return back()->with('error', 'Unauthorize');
+                }
+
+            // $post = Post::find($id);
+            // $post->delete();
+            // return redirect('/post/list')->with('success', 'Post deleted');
     }
 }

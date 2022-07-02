@@ -28,7 +28,7 @@
                 </div>
             </div>
                 <hr>
-
+            @if(auth()->id() === $post->user->id)
             <div class="d-flex justify-content-between mb-2 px-3">
                     <span class="a-small"><a class="text-white" href="{{ route('postList') }}"><i class="fas fa-angle-double-left"></i> Back to list</a></span> 
                     <span class="a-small">
@@ -40,6 +40,7 @@
                         </a>
                     </span>
             </div>
+            @endif
           
        </div>
     </div>
@@ -51,9 +52,11 @@
                         <hr>
                      <div class="overflow-auto overflow-section">
                          @foreach($post->comments as $comment)
+                         @if(auth()->id() === $comment->user->id)
                                 <a href="{{route('DeleteComment',$comment->id)}}" class="close">
                                     &times;
                                 </a>
+                        @endif
                              &nbsp; {{ $comment->comment }}
                             <div class="d-flex justify-content-end a-small">
                                 By &nbsp; <b>{{ $comment->user->name }}</b>/
