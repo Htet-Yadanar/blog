@@ -8,7 +8,7 @@
     @endif
     <div class="row justify-content-center">
         <div class="col-12 mb-4">
-            <p class="h2 text-bold text-black text-center">Posts</p>
+            <p class="h2 text-bold text-black text-center">My Posts</p>
         </div>
     @foreach ($data as $key => $value)
        <div class="col-lg-4 col-md-6 col-sm-11">

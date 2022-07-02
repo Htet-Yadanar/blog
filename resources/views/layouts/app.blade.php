@@ -54,10 +54,16 @@
                             @endif
                         @else
                             <li class="nav-item ">
+                                    <a class="nav-link custom-color" href="{{ route('home') }}">{{ __('Home') }}</a>
+                            </li>
+                            <li class="nav-item ">
                                     <a class="nav-link custom-color" href="{{ route('postCreate') }}">{{ __('Add Post') }}</a>
                             </li>
                             <li class="nav-item ">
                                     <a class="nav-link custom-color" href="{{ route('postList') }}">{{ __('Post List') }}</a>
+                            </li>
+                            <li class="nav-item ">
+                                    <a class="nav-link custom-color" href="{{ route('myPost') }}">{{ __('My Post') }}</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle custom-color" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', [App\Http\Controllers\PostController::class, 'index'])->name('index');
 
@@ -35,3 +35,5 @@ Route::get('/post/delete/{id}', [App\Http\Controllers\PostController::class, 'de
 //comment add and delete
 Route::post('/comments/add', [App\Http\Controllers\CommentController::class, 'comment']);
 Route::get('/comments/delete/{id}', [App\Http\Controllers\CommentController::class, 'delete'])->name('DeleteComment');
+//view auth user post
+Route::get('/post/mypost', [App\Http\Controllers\PostController::class, 'mypost'])->name('myPost');

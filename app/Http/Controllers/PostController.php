@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 
 class PostController extends Controller
@@ -16,6 +17,11 @@ class PostController extends Controller
     {
         $data = Post::latest()->paginate(6);
         return view('blog.bloglist',compact('data'));
+    }
+    public function mypost(){
+        $data = Post::where('user_id', '=',Auth::user()->id)->paginate(6);
+        //dd($data);
+        return view('blog.myblog',compact('data'));
     }
     public function add()
     {
